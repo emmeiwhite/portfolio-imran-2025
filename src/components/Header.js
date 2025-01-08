@@ -7,28 +7,38 @@ import { Box, HStack } from '@chakra-ui/react'
 const socials = [
   {
     icon: faEnvelope,
-    url: 'mailto: hello@example.com'
+    url: 'mailto: ratherimran99@gmail.com'
   },
   {
     icon: faGithub,
-    url: 'https://github.com'
+    url: 'https://github.com/emmeiwhite'
   },
   {
     icon: faLinkedin,
-    url: 'https://www.linkedin.com'
-  },
-  {
-    icon: faMedium,
-    url: 'https://medium.com'
+    url: 'https://www.linkedin.com/in/imran-rafiq-rather/'
   },
   {
     icon: faStackOverflow,
-    url: 'https://stackoverflow.com'
+    url: 'https://stackoverflow.com/users/6938969/imran-rafiq-rather'
+  }
+]
+
+const links = [
+  {
+    name: 'Projects',
+    id: 1,
+    linkTo: 'projects'
+  },
+  {
+    name: 'Contact Me',
+    id: 2,
+    linkTo: 'contactme'
   }
 ]
 
 const Header = () => {
-  const handleClick = anchor => () => {
+  const handleClick = anchor => {
+    console.log('Header Clicked!')
     const id = `${anchor}-section`
     const element = document.getElementById(id)
     if (element) {
@@ -62,11 +72,13 @@ const Header = () => {
           <nav>
             {/* Add social media links based on the `socials` data */}
             <HStack spacing={8}>
-              {socials.map(link => {
+              {socials.map(social => {
                 return (
-                  <a href={link.url}>
+                  <a
+                    href={social.url}
+                    key={social.url}>
                     <FontAwesomeIcon
-                      icon={link.icon}
+                      icon={social.icon}
                       size="2x"
                     />
                   </a>
@@ -75,7 +87,19 @@ const Header = () => {
             </HStack>
           </nav>
           <nav>
-            <HStack spacing={8}>{/* Add links to Projects and Contact me section */}</HStack>
+            <HStack spacing={8}>
+              {' '}
+              {links.map(link => {
+                return (
+                  <a
+                    href={`#${link.linkTo}`}
+                    key={link.id}
+                    onClick={() => handleClick(link.linkTo)}>
+                    {link.name}
+                  </a>
+                )
+              })}
+            </HStack>
           </nav>
         </HStack>
       </Box>
