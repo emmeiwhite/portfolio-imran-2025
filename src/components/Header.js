@@ -56,6 +56,7 @@ const Header = () => {
       left={0}
       right={0}
       translateY={0}
+      zIndex="1000" // Ensure the header is on top
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"

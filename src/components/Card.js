@@ -48,6 +48,7 @@ const Card = ({ title, description, imageSrc }) => {
         justify="flex-end"
         w="100%"
         px={4}>
+        <Text color="gray.600">See More</Text>
         <FontAwesomeIcon
           icon={faArrowRight}
           size="1x"
